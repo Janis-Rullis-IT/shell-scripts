@@ -1,3 +1,7 @@
 #!/bin/bash
 
-tr '/' '\n' <<< $PWD	
+PARTS=`tr '/' '\n' <<< $PWD;`
+
+for PART in $PARTS; do
+	echo $PART
+done
