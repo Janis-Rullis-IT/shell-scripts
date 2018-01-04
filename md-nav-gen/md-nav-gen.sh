@@ -28,13 +28,16 @@ for ((i=max_depth; i >= $min_depth ; i--)); do
 	# Add each part a relative ('../' goes up) Markdown's link. Except the current dir.
 	if(( $i < max_depth )); then
 		level=$level'../';
-		link="[$directory]($level)";
 	else
-		link=$directory;
+		level=$level'.';
 	fi
-	nav_bar='/'$link$nav_bar;
+
+	link="[$directory]($level)";
+	nav_bar=' / '$link$nav_bar;
 done
 
+nav_bar="### $nav_bar\n\n-----------------------------------------------------------------------------------";
+echo -e $nav_bar > Navigation.md;
 
 echo "Path: '$PWD'.";
 echo "Directories: '${directories[@]}'.";
@@ -46,4 +49,3 @@ echo "Navigation bar: '$nav_bar'.";
 echo "Stored in: 'Navigation.md.'.";
 echo "";
 
-echo $nav_bar > Navigation.md;
