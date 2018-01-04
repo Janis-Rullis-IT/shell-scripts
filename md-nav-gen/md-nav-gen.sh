@@ -16,24 +16,29 @@ dir_cnt=${#directories[@]};
 # to avoid adding redundant depth. If not set it will got till the root of the path.
 current_depth_in_project=1;
 if [[ -n $1 ]]; then current_depth_in_project=$1; fi
-min_depth=$(( dir_cnt - current_depth_in_project ));
+max_depth=$dir_cnt-1;
+min_depth=$(( max_depth - current_depth_in_project ));
 
 # Loop through directories from deepest to highest.
-for ((i=$dir_cnt-1; i >= $min_depth ; i--)); do
+for ((i=max_depth; i >= $min_depth ; i--)); do
 
 	# Each iteration goes up in the folder structure.
-	level=$level'../';
 	directory=${directories[$i]};
 
-	# Add each part a relative ('../' goes up) Markdown's link.
-	link="[$directory]($level)";
+	# Add each part a relative ('../' goes up) Markdown's link. Except the current dir.
+	if(( $i < max_depth )); then
+		level=$level'../';
+		link="[$directory]($level)";
+	else
+		link=$directory;
+	fi
 	nav_bar='/'$link$nav_bar;
 done
 
 
 echo "Path: '$PWD'.";
 echo "Directories: '${directories[@]}'.";
-echo "First: '${directories[$dir_cnt-1]}'.";
+echo "First: '${directories[$max_depth]}'.";
 echo "Directory count: '$dir_cnt'.";
 echo "Current depth inside the project: $current_depth_in_project.";
 echo "";
