@@ -29,7 +29,7 @@ for ((i=max_depth; i >= $min_depth ; i--)); do
 	if(( $i < max_depth )); then
 		level=$level'../';
 	else
-		level=$level'.';
+		level=$level'./';
 	fi
 
 	link="[$directory]($level)";
