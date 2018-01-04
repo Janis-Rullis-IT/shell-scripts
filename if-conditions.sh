@@ -13,7 +13,7 @@ fi
 
 non_existing_script='i-totaly-do-not-exist.sh';
 
-echo "Simple, boolean check to understand the structure:";
+echo "Simple boolean check to understand the structure:";
 
 echo "";
 echo "if true:";
@@ -37,15 +37,72 @@ else
 	echo 'else';
 fi
 
+echo "";
+echo "Logical operators AND (&&), OR (||):";
+if [[ true = true ]] && [[ false = false ]]; then
+	echo '[[ true = true ]] && [[ false = false ]];';
+fi
+
+str_1='foo';
+str_2='bar';
 
 echo "";
-echo "File checks:
--d FILE	FILE exists and is a directory.
--e FILE	FILE exists.
--r FILE	FILE exists and the read permission is granted.
--s FILE	FILE exists and it's size is greater than zero (ie. it is not empty).
--w FILE	FILE exists and the write permission is granted.
--x FILE	FILE exists and the execute permission is granted.
+echo "Compare strings '$str_1' and '$str_2':";
+
+echo "";
+echo "'$str_1' is equal to '$str_1':";
+if [[ $str_1 == $str_1 ]]; then
+	echo '[[ $str_1 == $str_1 ]];';
+fi
+
+echo "";
+echo "'$str_1' is not equal to '$str_2':";
+if [[ $str_1 != $str_2 ]]; then
+	echo '[[ $str_1 != $str_2 ]];';
+fi
+
+echo "";
+echo "The length of '$str_1' is greater than zero:";
+if [[ -n $str_1 ]]; then
+	echo '[[ -n $str_1 ]];';
+fi
+
+int_1=5;
+int_2=3;
+int_3=7;
+
+echo "";
+echo "Compare integers $int_1, $int_2 and int_3:";
+
+echo "";
+echo "$int_1 is equal to $int_1";
+
+if (( $int_1 == $int_1 )); then
+	echo '(( $int_1 == $int_1 ))';
+fi
+
+echo "";
+echo "$int_1 is greater than $int_2";
+
+if (( $int_1 > $int_2 )); then
+	echo '(( $int_1 > $int_2 ))';
+fi
+
+echo "";
+echo "$int_1 is less than int_3";
+
+if (( $int_1 < int_3 )); then
+	echo '(( $int_1 < int_3 ))';
+fi
+
+echo "";
+echo "Check file:
+-d FILE	exists and is a directory.
+-e FILE	exists.
+-r FILE	exists and the read permission is granted.
+-s FILE	exists and it's size is greater than zero (ie. it is not empty).
+-w FILE	exists and the write permission is granted.
+-x FILE	exists and the execute permission is granted.
 ";
 
 echo "";
@@ -66,4 +123,6 @@ More info:
 * https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/
 * https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
 * https://stackoverflow.com/a/13618376
+* https://askubuntu.com/a/766845
+
 ";
