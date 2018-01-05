@@ -19,3 +19,10 @@ It contains `functions`, `ifs`, `loops` and so on.
 
 ## Useful tools
 * [nbshell plugin for Netbeans](http://plugins.netbeans.org/plugin/68049/nbshell).
+
+## Good to know
+* `set -x` for debug. More in [learn-basics/debug.sh](learn-basics/debug.sh).
+* Remember to add backslash '\' for special symbols in texts. Example,
+`echo "I `don't` want it."` will raise error `don't: command not found` and the
+output will become `I want it.`. Noticed this when pushing a commit and some of
+the text was missing because I used `` to highlight a code.
