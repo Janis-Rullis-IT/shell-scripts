@@ -28,3 +28,6 @@ output will become `I want it.`. Noticed this when pushing a commit and some of
 the text was missing because I used `` to highlight a code.
 * Shell scripts are very strict about spaces so `if[[ ... ]]` won't work because
 after `if` there should be a space.
+
+---------------------------------
+Started in Jan 2018
