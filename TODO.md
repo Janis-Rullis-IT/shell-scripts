@@ -1,5 +1,3 @@
-* Add the md nav generator.
-* Specify the projects depth to avoid adding /var/www/ direcotires to the nav.
 * Make filenames more describable. Like change md-nav-gen to 
 generate-markdown-navigation-bar.sh.
 * Put each script in a separate directory containing README and the script.
