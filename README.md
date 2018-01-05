@@ -26,3 +26,5 @@ It contains `functions`, `ifs`, `loops` and so on.
 `echo "I `don't` want it."` will raise error `don't: command not found` and the
 output will become `I want it.`. Noticed this when pushing a commit and some of
 the text was missing because I used `` to highlight a code.
+* Shell scripts are very strict about spaces so `if[[ ... ]]` won't work because
+after `if` there should be a space.

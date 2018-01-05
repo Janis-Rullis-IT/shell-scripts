@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 echo "
 === How to debug? ===
 "

@@ -119,6 +119,11 @@ fi
 
 
 echo "
+
+Good to know:
+* Shell scripts are very strict about spaces so if[[ ... ]] won't work because
+after 'if' there should be a space.
+
 More info:
 * https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/
 * https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
