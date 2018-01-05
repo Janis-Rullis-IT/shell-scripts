@@ -18,7 +18,7 @@ This can be useful not only in Github Pages but in any other MarkDown viewer.
 ![image](images/github-page-example.png)
 
 ### Do you want something more for your Github Pages?
-You can fully control the whole page look just like Bootstrap or Jekyl did it by
+You can fully control the whole page look just like Bootstrap or Jekyll did it by
 customizing it in the `gh-pages` branch. See more info in [janis-rullis/github-pages](https://github.com/janis-rullis/github-pages).
 
 ## Usage

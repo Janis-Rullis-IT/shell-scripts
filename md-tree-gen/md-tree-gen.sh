@@ -11,16 +11,27 @@ tree=${tree#?}
 
 file='Tree.md';
 
-if [[ -r README.md ]]; then
-	echo 'README.md exist. Will write in Tree.md.';
+if [[ -r index.md ]]; then
+	echo 'index.md exist. Will write in Tree.md.';
 else
-	file='README.md';
-	echo 'README.md does not exist. Will write in README.md.';
+	file='index.md';
+	echo 'index.md does not exist. Will write in index.md.';
 fi
+
+# Create the file first so it would be included in the tree.
+echo "" > $file;
+
+# Add [Jekyll Front Matter](https://jekyllrb.com/docs/frontmatter/) at the top of
+# file. It is a config that tells what's the title and what layout to use.
+tree="---
+title: Hello
+layout: default
+---"$tree;
 
 echo -e "${tree}" > $file;
 
 echo "";
-echo "Content: ${tree}.";
+echo "Content:
+${tree}.";
 echo "Stored in: $file.";
 echo "";
