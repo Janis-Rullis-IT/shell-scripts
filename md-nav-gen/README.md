@@ -4,7 +4,7 @@
 
 # Generate a navigation bar for Markdown as this one above
 
-## Why do should need it?
+## Why should I need it?
 
 I created it for my own GitHub Pages because by default they don't have nav. bar.
 I find it rather uncomfortable to navigate the site by clicking the 'Back' button
