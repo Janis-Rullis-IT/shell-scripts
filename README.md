@@ -15,7 +15,9 @@ It contains `functions`, `ifs`, `loops` and so on.
 ## Great reads
 * `man bash`.
 * [Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/) from [The Linux Documentation Project](http://tldp.org/).
+* [Say what? Kipibenkipod view of the world](http://www.kfirlavi.com/).
 * [Naming_Conventions](https://google.github.io/styleguide/shell.xml#Naming_Conventions).
+* [Defensive BASH Programming](http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/).
 
 ## Useful tools
 * [nbshell plugin for Netbeans](http://plugins.netbeans.org/plugin/68049/nbshell).
