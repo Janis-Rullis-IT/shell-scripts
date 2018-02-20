@@ -1,5 +1,5 @@
 #!/bin/bash
-# Export and archive a  MYSQL database.
+# Export and archive a MYSQL database.
 
 readonly DATABASE=$1;
 readonly DATE_TIME=`date '+%Y%m%d%H%M%S'`;	
