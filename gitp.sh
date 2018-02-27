@@ -11,8 +11,7 @@ echo "";
 if [[ -n $1 ]]; then
 	readonly MSG=$1;
 	git add . -A;
-	echo 'aaaa';
-#	git commit -m $MSG;
+	git commit -m "$MSG";
 else
 	echo "Commit message is missing!";
 	echo "Example, gitp 'Update README'";
