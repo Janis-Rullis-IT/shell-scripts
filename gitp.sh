@@ -10,7 +10,7 @@ echo "";
 
 if [[ -n $1 ]]; then
 	readonly MSG=$1;
-	git add . -A
+	git add . -A;
 	git commit -m $MSG;
 else
 	echo "Commit message is missing!";
