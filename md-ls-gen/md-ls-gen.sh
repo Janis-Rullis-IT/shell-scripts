@@ -6,10 +6,16 @@ echo "=== Generate links to files inside this directory in the format of Markdow
 echo "";
 
 file='List.md';
+tree='';
+
+# The name of the current directory.
+readonly CUR_DIR_NAME=${PWD##*/}
+
+# Page title is the current directory's name which - is replace with space.
+page_title=`tr '-' ' ' <<< $CUR_DIR_NAME`;
 
 # Collect a list of files in the current directories, each file in a separate line. Only names no additional info.
-list=`ls -1`;
-tree='';
+readonly list=`ls -1`;
 
 # Format each filename.
 for part in $list; do
@@ -18,7 +24,7 @@ for part in $list; do
 	title=`tr '-' ' ' <<< $part`;
 
 	# Formate the link.
-	link="[$part]($part)."
+	link="* [$part]($part)."
 
 	# Add the link to the list.
 	tree="$tree
@@ -39,9 +45,11 @@ echo "" > $file;
 # Add [Jekyll Front Matter](https://jekyllrb.com/docs/frontmatter/) at the top of
 # file. It is a config that tells what's the title and what layout to use.
 tree="---
-title: Hello
+title: $page_title
 layout: default
----"$tree;
+---
+# $page_title
+"$tree;
 
 # Write the list to file.
 echo -e "${tree}" > $file;
