@@ -40,11 +40,11 @@ $link";
 done
 
 # Determine the target file where to write the list.
-if [[ -r index.md ]]; then
-	echo "index.md exist. Will write in $file.";
+if [[ -r README.md ]]; then
+	echo "README.md exist. Will write in $file.";
 else
-	file='index.md';
-	echo 'index.md does not exist. Will write in index.md.';
+	file='README.md';
+	echo 'README.md does not exist. Will write in README.md.';
 fi
 
 # Create the file first so it would be included in the tree.
