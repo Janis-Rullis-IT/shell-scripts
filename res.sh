@@ -6,4 +6,19 @@
 
 echo "== Resize images with ImageMagick ==";
 
-convert "*.png[250x>]" -set filename:base "%[base]" "%[filename:base]-250x.png"
+size=250x;
+format='png';
+
+for f in `find . -name "*.$format"`
+do
+	# Store the resized images in a separate directory.
+	dir=$(dirname $f)"/$size";
+
+	if [[ ! -d $dir ]]; then
+		mkdir $dir;
+	fi
+
+	convert "$f[$size>]" -set filename:base "%[base]" "$dir/%[filename:base].$format";
+
+	echo $f;
+done
