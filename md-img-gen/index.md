@@ -1,8 +1,8 @@
 ---
-title: md alb gen
+title: md img gen
 layout: default
 ---
-# md alb gen
+# md img gen
 
 #### 1/2/3/apply canvas
 ![1/2/3/apply canvas](1/2/3/apply-canvas.png)
