@@ -2,10 +2,10 @@
 # set -x
 
 echo "";
-echo "=== Generate links to files inside this directory in the format of Markdown ===";
+echo "=== Include all images from all directories below in the format of Markdown ===";
 echo "";
 
-file='List.md';
+file='Images.md';
 tree='';
 
 # The name of the current directory.
@@ -15,16 +15,24 @@ readonly CUR_DIR_NAME=${PWD##*/}
 page_title=`tr '-' ' ' <<< $CUR_DIR_NAME`;
 
 # Collect a list of files in the current directories, each file in a separate line. Only names no additional info.
-readonly list=`ls -1`;
+readonly list=`find -type f \( -iname \*.jpg -o -iname \*.png \)`;
 
 # Format each filename.
 for part in $list; do
 
+	# Trim the ./ part .
+	part=${part:2}
+
 	# Replace - with a space.
 	title=`tr '-' ' ' <<< $part`;
 
+	# Remove the extension.
+	title=${title%.*}
+
 	# Formate the link.
-	link="* [$title]($part)."
+	link="#### $title
+![$title]($part)
+";
 
 	# Add the link to the list.
 	tree="$tree

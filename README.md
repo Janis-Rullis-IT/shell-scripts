@@ -23,13 +23,20 @@ It contains `functions`, `ifs`, `loops` and so on.
 * [nbshell plugin for Netbeans](http://plugins.netbeans.org/plugin/68049/nbshell).
 
 ## Good to know
-* `set -x` for debug. More in [learn-basics/debug.sh](learn-basics/debug.sh).
+
 * Remember to add backslash '\' for special symbols in texts. Example,
 `echo "I `don't` want it."` will raise error `don't: command not found` and the
 output will become `I want it.`. Noticed this when pushing a commit and some of
 the text was missing because I used `` to highlight a code.
 * Shell scripts are very strict about spaces so `if[[ ... ]]` won't work because
 after `if` there should be a space.
+
+### Debugging
+
+* `set -x` for debug. More in [learn-basics/debug.sh](learn-basics/debug.sh).
+* use `exit` to stop the script. 
+* Better write outpout to file with echo -e, otherwise the output in terminal can be misleading.
+
 
 ---------------------------------
 Started in Jan 2018
