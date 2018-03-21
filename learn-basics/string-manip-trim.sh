@@ -16,3 +16,10 @@ echo ${stringZ: -4}                          # Cabc
 ## Remove extension.
 y=${x%.*}
 echo ${y##*/}
+
+
+# Appending a string before file extension in bash script
+# https://stackoverflow.com/a/25122981
+extension="${file##*.}"                     # get the extension
+filename="${file%.*}"                       # get the filename
+mv "$file" "${filename}001.${extension}"    # rename file by moving it
