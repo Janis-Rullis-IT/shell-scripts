@@ -33,6 +33,9 @@ after `if` there should be a space.
 
 ### Debugging
 
+* http://redsymbol.net/articles/unofficial-bash-strict-mode/
+* https://www.shellcheck.net/
+
 * `set -x` for debug. More in [learn-basics/debug.sh](learn-basics/debug.sh).
 * use `exit` to stop the script. 
 * Better write outpout to file with echo -e, otherwise the output in terminal can be misleading.

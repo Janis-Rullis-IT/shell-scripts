@@ -7,34 +7,41 @@
 echo "== Add overlay to all images in this directory ==
 ";
 
-def_file="fil";
-dir="merged";
+function gifo_main ()
+{
+	def_file="fil";
+	dir="merged";
 
-# Accept the file to copy.
-if [[ -n $1 ]]; then
-        file=$1;
+	# Accept the file to copy.
+	if [[ -n $1 ]]; then
+        	file=$1;
 
-# Use default file if can.
-elif [[ -r  $def_file ]]; then
-        echo "Will copy 'fil'";
-        file=$def_file;
-else
-        echo "File is missing. What should I copy?"
-        exit;
-fi
+	# Use default file if can.
+	elif [[ -r  $def_file ]]; then
+	        echo "Will copy 'fil'";
+        	file=$def_file;
+	else
+        	echo "File is missing. What should I copy?"
+	        exit;
+	fi
 
-# Stored merged copies in a separate directory.
-if [[ ! -d $dir ]]; then
-	mkdir $dir;
-fi
+	# Stored merged copies in a separate directory.
+	if [[ ! -d $dir ]]; then
+		mkdir $dir;
+	fi
 
-# All files in directory except the source file and directories.
-for f in `find . -name "*.png"`
-do
-	target=$dir/$f;
+	# All files in directory except the source file and directories.
+	for f in `find . -name "*.png"`
+	do
+		# Trim the ./ part .
+	        f=${f:2};
 
-	# Merge those two files.
-	convert -gravity center $f $file -composite $target;
+		target=$dir/$f;
 
-        echo $target;
-done
+		# Merge those two files.
+		convert -gravity center $f $file -composite $target;
+        	echo $target;
+	done
+}
+
+gifo_main

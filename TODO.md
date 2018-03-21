@@ -1,3 +1,7 @@
+* Read http://redsymbol.net/articles/unofficial-bash-strict-mode/
+* Read about fn naming and how to improve isolation.
+* Format in nano?
+
 * Create resizer for favicons, that genereats from 96 to 16px.
 * Make filenames more describable. Like change md-nav-gen to 
 generate-markdown-navigation-bar.sh.
