@@ -31,7 +31,7 @@ function gifo_main ()
 	fi
 
 	# All files in directory except the source file and directories.
-	for f in `find . -name "*.png"`
+	for f in `find . -maxdepth 1 -name "*.png"`
 	do
 		# Trim the ./ part .
 	        f=${f:2};

@@ -18,7 +18,7 @@ fi
 # Add overlay if has the overlay file.
 if [[ -r 'fil' ]]; then
 	gifo;
-	cd $dir;
+	cd 'merged';
 fi
 
-convert -resize $size  -delay 20 -loop 0 *.png anim.gif
+convert -resize $size -delay 20 *.png -loop 0 anim.gif;
