@@ -9,6 +9,20 @@ echo "== Resize images with ImageMagick ==";
 size=250x;
 format='png';
 
+echo "1st argument is size. Default is '250x'.";
+if [[ -n $1 ]]; then
+        size=$1;
+else
+	size=250x;
+fi
+
+echo "2nd argument is format. Default is 'png'.";
+if [[ -n $2 ]]; then
+        formate=$2;
+else
+	format='png';
+fi
+
 for f in `find . -name "*.$format"`
 do
 	# Store the resized images in a separate directory.

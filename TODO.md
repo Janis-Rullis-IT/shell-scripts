@@ -1,3 +1,4 @@
+* Create resizer for favicons, that genereats from 96 to 16px.
 * Make filenames more describable. Like change md-nav-gen to 
 generate-markdown-navigation-bar.sh.
 * Put each script in a separate directory containing README and the script.
