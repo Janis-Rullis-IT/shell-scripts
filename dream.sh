@@ -21,7 +21,7 @@ if [[ -r 'fil' ]]; then
 	cd 'merged';	
 fi
 
-convert -resize $size -blur 0x4 -delay 20 -dispose Background *.png -loop 0 anim.gif;
+convert -resize $size -blur 0x4 -delay 45 -dispose Background *.png -loop 0 anim.gif;
 
 # Replaces lime color with transparency (if has).
 convert anim.gif -fuzz 50% -transparent 'black' anim.gif

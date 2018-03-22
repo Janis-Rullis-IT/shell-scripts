@@ -24,4 +24,4 @@ if [[ -r 'fil' ]]; then
 	convert anim.gif -fuzz 50% -transparent 'lime' anim.gif
 fi
 
-convert -resize $size -delay 20 *.png -dispose Background -loop 0 anim.gif;
+convert -resize $size -delay 45 *.png -dispose Background -loop 0 anim.gif;
