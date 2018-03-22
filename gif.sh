@@ -19,6 +19,9 @@ fi
 if [[ -r 'fil' ]]; then
 	gifo;
 	cd 'merged';
+	
+	# Replaces lime color with transparency (if has).
+	convert anim.gif -fuzz 50% -transparent 'lime' anim.gif
 fi
 
 convert -resize $size -delay 20 *.png -loop 0 anim.gif;
