@@ -4,7 +4,7 @@
 # sudo cp gifo.sh /usr/local/bin/gifo
 # sudo chmod a+x /usr/local/bin/gifo
 
-echo "== Add overlay to all images in this directory ==
+echo "== Create GIF from images in this directory ==
 ";
 
 size='100x';
