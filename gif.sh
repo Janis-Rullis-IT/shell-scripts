@@ -7,10 +7,10 @@
 echo "== Create GIF from images in this directory ==
 ";
 
-size='100x';
+size='200x';
 format='png';
 
-echo "1st argument is size. Default is '100x'.";
+echo "1st argument is size. Default is '200x'.";
 if [[ -n $1 ]]; then
         size=$1;
 fi
