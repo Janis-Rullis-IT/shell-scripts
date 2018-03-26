@@ -15,7 +15,7 @@ readonly CUR_DIR_NAME=${PWD##*/}
 page_title=`tr '-' ' ' <<< $CUR_DIR_NAME`;
 
 # Collect a list of files in the current directories, each file in a separate line. Only names no additional info.
-readonly list=`find -type f \( -iname \*.jpg -o -iname \*.png \)`;
+readonly list=`find -type f \( -iname \*.jpg -o -iname \*.png -o -iname \*.gif \)`;
 
 # Format each filename.
 for part in $list; do
