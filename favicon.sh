@@ -32,7 +32,6 @@ for index in ${!sizes[*]}
 do
         size=${sizes[$index]};
 	filename="favicon-${size}.png";
-#	sizes_str="${filename} ${sizes_str}";
         target="${dir}/${filename}";
         convert "$file[${size}x${size}]" "$target";
         echo $target;
