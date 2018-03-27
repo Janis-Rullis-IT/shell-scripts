@@ -67,6 +67,14 @@ if [[ -n $str_1 ]]; then
 	echo '[[ -n $str_1 ]];';
 fi
 
+
+echo "";
+echo "is true if $emptystring is an empty string or an uninitialized variable. ";
+if [ -z "$emptystring" ]; then
+	echo ' [ -z "$emptystring" ];';
+fi
+
+
 int_1=5;
 int_2=3;
 int_3=7;
