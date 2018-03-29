@@ -1,6 +1,3 @@
-# shell-scripts
-Useful shell scripts. 
-
 ## What is a shell script?
 [Wiki](https://en.wikipedia.org/wiki/Shell_script).
 
