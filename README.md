@@ -1,6 +1,5 @@
 # shell-scripts
-Useful shell scripts like listing changed files, generating file 
-trees and navigations for Markdown.
+Useful shell scripts. 
 
 ## What is a shell script?
 [Wiki](https://en.wikipedia.org/wiki/Shell_script).
