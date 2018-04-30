@@ -1,3 +1,5 @@
+* alias cmd. 
+* analyze fix-perms and sync-db.sh that contains select and ;;
 * Read http://redsymbol.net/articles/unofficial-bash-strict-mode/
 * Read about fn naming and how to improve isolation.
 * Format in nano?
@@ -13,7 +15,7 @@ generate-markdown-navigation-bar.sh.
 * Use them nginx repo.
 
 ## Add scripts:
-* Folder listing.
+* Folder listing
 * Changed files.
 * Backup?
 
