@@ -17,6 +17,13 @@ It contains `functions`, `ifs`, `loops` and so on.
 
 ## Useful tools
 * [nbshell plugin for Netbeans](http://plugins.netbeans.org/plugin/68049/nbshell).
+* [isao/shell - various scripts and support files for noodling on the command line, esp bbedit, git, etc](https://github.com/isao/shell)
+* [xbot/shell - This repo hosts miscellaneous scripts I use in my daily life.](https://github.com/xbot/shell)
+* [smilejay/shell - some of Jay's shared Shell codes. http://smilejay.com](https://github.com/smilejay/shell)
+* [hjxhjh/shell - some of my shared shell scripts](https://github.com/hjxhjh/shell)
+* [Crabbit/shell - My shell scripts.](https://github.com/Crabbit/shell)
+* [geekcomputers/Shell - Some of the handy shell scripts I have created/acquired](https://github.com/geekcomputers/Shell)
+* [dl - fetch remote file for convenient local reading](https://github.com/redsymbol/dl)
 
 ## Good to know
 
