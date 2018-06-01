@@ -13,6 +13,7 @@ function init(){
     set -Eeuo pipefail; # set -o xtrace;
     IFS=$'\n\t'
     DIR=$PWD;
+    ROOT_DIR="$(dirname "${DIR}")";
 }
 init
 ```
