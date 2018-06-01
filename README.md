@@ -1,6 +1,26 @@
 ## What is a shell script?
 [Wiki](https://en.wikipedia.org/wiki/Shell_script).
 
+## Best practices
+
+* [Best Practices for Writing Bash Scripts (kvz.io).](https://kvz.io/blog/2013/11/21/bash-best-practices/)
+* [Use the Unofficial Bash Strict Mode (Unless You Looove Debugging (redsymbol.net)](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+* [kvz/bash3boilerplate](https://github.com/kvz/bash3boilerplate/blob/master/main.sh)
+
+```shell
+# Define error reporting level, file seperator, and init direcotry.
+function init(){
+    set -Eeuo pipefail; # set -o xtrace;
+    IFS=$'\n\t'
+    DIR=$PWD;
+}
+init
+```
+
+## Error params
+
+* [4.3.1 The Set Builtin (gnu.org/software/bash)](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html#The-Set-Builtin)
+
 ## Where to look for a serious working example?
 * [epety/100-shell-script-examples](https://github.com/epety/100-shell-script-examples).
 * [natelandau/shell-scripts](https://github.com/natelandau/shell-scripts).
