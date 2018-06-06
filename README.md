@@ -22,6 +22,12 @@ init
 
 * [4.3.1 The Set Builtin (gnu.org/software/bash)](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html#The-Set-Builtin)
 
+## Execute in terminal
+
+* Create a launcher.
+* Set working directory and command.
+* Check 'Open in terminal'.
+
 ## Where to look for a serious working example?
 * [epety/100-shell-script-examples](https://github.com/epety/100-shell-script-examples).
 * [natelandau/shell-scripts](https://github.com/natelandau/shell-scripts).
