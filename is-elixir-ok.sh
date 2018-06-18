@@ -51,8 +51,8 @@ initGlobals
 prepareLogsDirectory
 runTests
 
-  if areTestsSuccessful; then
-    echo 'ok.'
-  else
-    echo 'fail.'
-  fi
+if areTestsSuccessful; then
+  echo 'ok.'
+else
+  echo 'fail.'
+fi
