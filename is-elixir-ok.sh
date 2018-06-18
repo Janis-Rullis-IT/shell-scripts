@@ -34,6 +34,10 @@ function prepareLogsDirectory(){
 function runTests(){
   # echo "Run tests."
   mix test > $LOG_FILE
+
+  # Silent.
+  # mix test > $LOG_FILE 2>&1 &
+  # sleep 15s
 }
 
 function doesFileContainString(){
