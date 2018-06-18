@@ -33,7 +33,7 @@ function prepareLogsDirectory(){
 
 function runTests(){
   # echo "Run tests."
-  mix tests > $LOG_FILE
+  mix test > $LOG_FILE
 }
 
 function doesFileContainString(){
