@@ -33,10 +33,7 @@ function prepareLogsDirectory(){
 
 function runTests(){
   # echo "Run tests."
-  echo -e "Finished in 0.03 seconds
-1 test, 0 failures
-" > $LOG_FILE
-  #mix tests > $LOG_FILE
+  mix tests > $LOG_FILE
 }
 
 function doesFileContainString(){
