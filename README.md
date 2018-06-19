@@ -18,6 +18,10 @@ function init(){
 init
 ```
 
+## Avoid exit when child process fails
+
+Comment out the set -Eeuo pipefail.
+
 ## Error params
 
 * [4.3.1 The Set Builtin (gnu.org/software/bash)](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html#The-Set-Builtin)
