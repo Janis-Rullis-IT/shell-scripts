@@ -52,4 +52,5 @@ exiftool \
 \
 -XMP-cc:AttributionURL="https://${WEBSITE}" \
 -URL="https://${WEBSITE}" \
+-XMP-iptcCore:CreatorWorkURL="https://${WEBSITE}" \
 .
