@@ -7,7 +7,7 @@
 
 # Get the sRGB profile file from http://www.color.org/srgbprofiles.xalter
 
-echo "== Convert to sRGB ==";
+echo "== Convert to JPG with sRGB profile ==";
 
 target_dir="srgb";
 
@@ -20,9 +20,10 @@ for f in `find ./  -maxdepth 1 -type f \( -iname \*.jpg -o -iname \*.png -o -ina
 do
 	# Trim the ./ part .
         f=${f:2};
-	target="${target_dir}/$f";
-	mogrify -path ${target_dir} -colorspace sRGB -strip -profile /usr/local/bin/sRGB_v4_ICC_preference.icc $f
+	filename=$(basename $f);
+	new_filename="${filename%.*}.jpg"
+	target="${target_dir}/${new_filename}";
+	dir=$(dirname $f);
+	convert $f -colorspace sRGB -strip -profile /usr/local/bin/sRGB_v4_ICC_preference.icc $target
 	echo $target;
 done
-
-	
