@@ -43,7 +43,7 @@ do
 	# Prepare the target.
 	dir=$(dirname $f);
 	ext="${f##*.}";
-	new_filename="${beginning}${dir}${end}-${file_number}.${ext}";		
+	new_filename="${beginning}-${dir}${end}-${file_number}.${ext}";		
 	target="${target_dir}/${new_filename}";
 
 	cp "${f}" "${target}"
