@@ -4,7 +4,9 @@
 # sudo cp ren.sh /usr/local/bin/ren
 # sudo chmod a+x /usr/local/bin/ren
 
-echo "== Safely rename all files in subdirectories. Store in 'renamed' directory. ==";
+echo "== Safely rename all files in subdirectories. Store in 'renamed' directory. ==
+Example
+ren \"Flowers\" \"2019\"";
 
 #set -Eeuo pipefail; # set -o xtrace;
 # Define how to handle newlines in the `find` results.
