@@ -16,6 +16,7 @@ end='-by-Janis-Rullis';
 target_dir="renamed";
 file_number=1
 is_simple=false
+filetype="! -type d";
 
 if [[ ! -d $target_dir ]]; then
         mkdir $target_dir;
@@ -37,7 +38,13 @@ if [[ $end == "-s" ]]; then
         echo "Simple rename: enabled"
 fi
 
-files=`find -mindepth 2 ! -type d | sort -n`
+echo "3nd argument is the file type. Example: jpg";
+if [[ -n $3 ]]; then
+        files=`find -mindepth 2 -name "*.$3"  | sort -n`
+
+else
+        files=`find -mindepth 2 ! -type d  | sort -n`
+fi
 
 for f in $files
 do
@@ -49,7 +56,6 @@ do
         ext="${f##*.}";
         mid="-${dir}${end}"
 
-	# Leave the middle part empty if '-s' is received.
         if [[ $is_simple = true ]]; then
                 mid="";
         fi
