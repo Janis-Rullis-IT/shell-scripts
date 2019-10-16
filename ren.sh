@@ -14,9 +14,11 @@ readonly DIR=$PWD;
 beginning='';
 end='-by-Janis-Rullis';
 target_dir="renamed";
-file_number=1
 is_simple=false
 filetype="! -type d";
+
+# Trim first digit and get 001 -  https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
+file_number=1001
 
 if [[ ! -d $target_dir ]]; then
         mkdir $target_dir;
@@ -60,7 +62,7 @@ do
                 mid="";
         fi
 
-        new_filename="${beginning}${mid}-${file_number}.${ext}";
+        new_filename="${beginning}${mid}-${file_number:1}.${ext}";
         target="${target_dir}/${new_filename}";
 
         cp "${f}" "${target}"
