@@ -1,3 +1,5 @@
+  GNU nano 2.9.3                                                                                                                                                               /usr/local/bin/ren                                                                                                                                                                          
+
 #!/bin/bash
 ## Make globally available with:
 # sudo cp ren.sh /usr/local/bin/ren
@@ -17,8 +19,8 @@ target_dir="renamed";
 is_simple=false
 filetype="! -type d";
 
-# Trim first digit and get 001 -  https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
-file_number=1001
+# Trim first digit and get 0001 -  https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
+file_number=10001
 
 if [[ ! -d $target_dir ]]; then
         mkdir $target_dir;
@@ -42,10 +44,10 @@ fi
 
 echo "3nd argument is the file type. Example: jpg";
 if [[ -n $3 ]]; then
-        files=`find -mindepth 2 -name "*.$3"  | sort -n`
+        files=`find -mindepth 2 -maxdepth 2 -name "*.$3"  | sort -n`
 
 else
-        files=`find -mindepth 2 ! -type d  | sort -n`
+        files=`find -mindepth 2 -maxdepth 2 ! -type d  | sort -n`
 fi
 
 for f in $files
