@@ -1,5 +1,3 @@
-  GNU nano 2.9.3                                                                                                                                                               /usr/local/bin/ren                                                                                                                                                                          
-
 #!/bin/bash
 ## Make globally available with:
 # sudo cp ren.sh /usr/local/bin/ren
@@ -29,7 +27,7 @@ fi
 
 echo "1st argument is the beginning.";
 if [[ -n $1 ]]; then
-        beginning=$1;
+        beginning="${1}-"
 fi
 
 echo "2nd argument is the end. Default is '-by-Janis-Rullis'";
@@ -64,7 +62,7 @@ do
                 mid="";
         fi
 
-        new_filename="${beginning}${mid}-${file_number:1}.${ext}";
+        new_filename="${beginning}${file_number:1}${mid}.${ext}";
         target="${target_dir}/${new_filename}";
 
         cp "${f}" "${target}"
