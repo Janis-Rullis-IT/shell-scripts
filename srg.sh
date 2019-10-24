@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 ## Make globally available with:
@@ -26,11 +27,8 @@ do
         dir=$(dirname $f);
 
         convert  $f \
-        -gaussian-blur 0.05 -quality 85%  \
         -posterize 64 -depth 8 \
         -colorspace sRGB  -profile /usr/local/bin/sRGB_v4_ICC_preference.icc $target
-
-#        convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% \
 
         echo $target;
 done
