@@ -25,10 +25,12 @@ do
         target="${target_dir}/${new_filename}";
         dir=$(dirname $f);
 
-         convert  $f'[1920>]' \
+        convert  $f \
         -gaussian-blur 0.05 -quality 85%  \
         -posterize 64 -depth 8 \
-        -colorspace sRGB  -profile /usr/local/bin/sRGB_v4_ICC_preference.icc $t$
+        -colorspace sRGB  -profile /usr/local/bin/sRGB_v4_ICC_preference.icc $target
+
+#        convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% \
 
         echo $target;
 done
