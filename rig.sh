@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# sudo apt install cwebp
 # sudo cp rig.sh /usr/local/bin/rig
 # sudo chmod a+x /usr/local/bin/rig
 
@@ -31,11 +33,17 @@ do
         for index in ${!sizes[*]}
         do
                 size=${sizes[$index]};
-                new_filename="${filename%.*}-${size}x.jpg"
+                new_filename="${filename%.*}-${size}x"
                 target="${target_dir}/${new_filename}";
                 dir=$(dirname $f);
 
-                convert  "$f[${size}>]" "$target";
+                # Convert to *.jpg.
+                convert "$f[${size}>]" -gaussian-blur 0.05 -quality 85%  "${target}.jpg";
+
+                # Convert to *.webp.
+                cwebp -q 85 "${f}"  -resize ${size} 0  -o "${target}.webp"
                 echo $target;
         done
 done
+
+
