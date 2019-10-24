@@ -37,4 +37,8 @@ cd srgb
 # Set EXIF for originals.
 exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 
-echo "Final result is in \"${PWD}/renamed/srgb\""
+rig 1920
+#cd 1920x
+#exi "${DESCRIPTION}" "${DATE}" "${TIME}"
+
+echo "Final result is in \"${PWD}"
