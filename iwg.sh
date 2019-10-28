@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 ## Make globally available with:
@@ -24,21 +25,25 @@ DESCRIPTION=$1
 END=$2
 DATE=$3
 TIME=$4
+SIZES=1920
 # Remove ':' from the date.
 DATE_FILENAME=${DATE//:/}
+
+if [[  $5 ]]; then
+        SIZES=""
+fi
+
 
 ren "${DATE_FILENAME}-${DESCRIPTION}" "${END}"
 cd renamed
 
 # Add converted sRPG JPGs.
-srg
-cd srgb
+#srg
+#cd srgb
 
 # Set EXIF for originals.
 exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 
-rig 1920
-#cd 1920x
-#exi "${DESCRIPTION}" "${DATE}" "${TIME}"
+rig $SIZES
 
 echo "Final result is in \"${PWD}"
