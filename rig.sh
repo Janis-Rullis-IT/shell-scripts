@@ -41,7 +41,7 @@ do
                 convert "$f" -resize ${size} -gaussian-blur 0.05 -quality 85%  "${target}.jpg";
 
                 # Convert to *.webp.
-                cwebp -q 85 "${f}"  -resize ${size} 0  -metadata all -o "${target}.webp"
+                cwebp -q 85 "${f}"  -resize ${size} 0 -mt  -metadata all -o "${target}.webp"
                 echo $target;
         done
 done
