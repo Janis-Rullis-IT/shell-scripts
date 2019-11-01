@@ -8,7 +8,10 @@ echo "== Resize an image into defined sizes for a responsive page ==
 Example
 1) rig - generates a list of sizes.
 2) rig 1920 - only 1 size.
+2) rig 1920 -p - also generate a placeholder.
 ";
+
+WITH_PLACEHOLDER=false
 
 if [[ -n $1 ]]; then
         readonly target_dir="$1x";
@@ -16,6 +19,10 @@ if [[ -n $1 ]]; then
 else
         readonly target_dir="responsive";
         readonly sizes=(3840 3200 2732 2048 1920 1600 1536 1366 1024 900 768 450);
+fi
+
+if [[ -n $2 ]]; then
+	WITH_PLACEHOLDER=true;
 fi
 
 if [[ ! -d $target_dir ]]; then
@@ -40,9 +47,12 @@ do
                 # Convert to *.jpg.
                 convert "$f" -resize ${size} -gaussian-blur 0.05 -quality 85%  "${target}.jpg";
 
+		if [[ WITH_PLACEHOLDER = true ]]; then	                
+			convert "$f" -resize 700x -strip -blur 0x8 -quality 20  "${target_dir}/${filename%.*}-700x-placeholder.jpg";
+		fi
+
                 # Convert to *.webp.
                 cwebp -q 85 "${f}"  -resize ${size} 0 -mt  -metadata all -o "${target}.webp"
                 echo $target;
         done
 done
-
