@@ -49,6 +49,7 @@ do
 
 		if [[ WITH_PLACEHOLDER = true ]]; then	                
 			convert "$f" -resize 700x -strip -blur 0x8 -quality 20  "${target_dir}/${filename%.*}-700x-placeholder.jpg";
+                        cwebp -q 40 "${target_dir}/${filename%.*}-700x-placeholder.jpg" -noalpha -mt -o "${target_dir}/${filename%.*}-700x-placeholder.webp";
 		fi
 
                 # Convert to *.webp.
