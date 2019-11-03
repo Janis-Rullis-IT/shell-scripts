@@ -22,7 +22,7 @@ else
 fi
 
 if [[ -n $2 ]]; then
-	WITH_PLACEHOLDER=true;
+        WITH_PLACEHOLDER=true;
 fi
 
 if [[ ! -d $target_dir ]]; then
@@ -47,10 +47,12 @@ do
                 # Convert to *.jpg.
                 convert "$f" -resize ${size} -gaussian-blur 0.05 -quality 85%  "${target}.jpg";
 
-		if [[ WITH_PLACEHOLDER = true ]]; then	                
-			convert "$f" -resize 700x -strip -blur 0x8 -quality 20  "${target_dir}/${filename%.*}-700x-placeholder.jpg";
+                if [[ $WITH_PLACEHOLDER = true ]]; then
+                        convert "$f" -resize 700x -strip -blur 0x8 -quality 20 "${target_dir}/${filename%.*}-700x-placeholder.jpg";
+                        convert "${target_dir}/${filename%.*}-700x-placeholder.jpg" -grayscale Rec709Luminance "${target_dir}/${filename%.*}-700x-gray-placeholder.jpg";
                         cwebp -q 40 "${target_dir}/${filename%.*}-700x-placeholder.jpg" -noalpha -mt -o "${target_dir}/${filename%.*}-700x-placeholder.webp";
-		fi
+                        cwebp -q 40 "${target_dir}/${filename%.*}-700x-gray-placeholder.jpg" -noalpha -mt -o "${target_dir}/${filename%.*}-700x-gray-placeholder.webp";
+                fi
 
                 # Convert to *.webp.
                 cwebp -q 85 "${f}"  -resize ${size} 0 -mt  -metadata all -o "${target}.webp"
