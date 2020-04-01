@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sudo apt install ffmpeg
+# https://linux4one.com/how-to-install-ffmpeg-on-ubuntu-18-04/
 # sudo cp vid.sh /usr/local/bin/vid
 # sudo chmod a+x /usr/local/bin/vid
 
