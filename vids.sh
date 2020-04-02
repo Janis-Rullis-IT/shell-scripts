@@ -1,39 +1,42 @@
-#!/bin/bash
 
-IFS=$'\n\t'
+#!/bin/bash
 
 ## Make globally available with:
 # sudo cp vids.sh /usr/local/bin/vids
 # sudo chmod a+x /usr/local/bin/vids
 
-echo "== Collect a specific size JPG and generate a video ==";
-echo "vid or vid 640x";
+IFS=$'\n\t'
+DIR=$PWD;
+ROOT_DIR="$(dirname "${DIR}")";
+
+echo "== Collect a specific width JPG and generate a video ==";
+echo "vid or vid 640";
+
 # https://github.com/Janis-Rullis-IT/shell-scripts/blob/master/ren.sh
 # Trim first digit and get 001 -  https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
 file_number=1001
-size='1920x';
+width=1920;
 
 # https://github.com/Janis-Rullis-IT/shell-scripts/blob/master/iwg.sh
 if [[ -n $1 ]]; then
-        size=$1;
+        width=$1;
 fi
 
-if [[ ! -d $size ]]; then
-        mkdir $size;
-        echo "Created ${size}";
-fi
+# #1 Copy searched files to a directory. Ex., 1920x.
+dir_width="${width}x.jpg";
+extr ${dir_width};
 
-for f in `find . -name "*${size}.jpg"`
-do
-        new_filename="img${file_number:1}.jpg";
-        target="${size}/${new_filename}";
+cd $dir_width;
 
-        echo $f "=>" $target;
+# #1 Convert images to 16:9 ratio based on the passed width. Ex., 1920x/1080/.
+c16-9 $width;
 
-        cp "${f}" "${target}"
+# #1 Convert to indexed format.
+ren 'img' '-s';
 
-        ((file_number++));
-done
+# #1 Create a video.
+cd renamed;
+vid $width:$height;
 
-cd $size;
-vid
+echo "Video created."
+cd $DIR;
