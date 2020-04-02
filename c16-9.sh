@@ -37,3 +37,5 @@ cd $target_dir;
 
 mogrify -resize ${width}x${height} *.jpg
 mogrify -extent ${size} -gravity Center -fill white *.jpg
+
+cd $DIR;
