@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sudo cp htm.sh /usr/local/bin/htm
+# sudo ln -s ~/Desktop/www/shell-scripts/htm.sh /usr/local/bin/htm
 # sudo chmod a+x /usr/local/bin/htm
 
 echo "== Generarte HTML blocks for ruu.lv  ==
@@ -93,9 +93,11 @@ setVariables img.xml
 if [[ $IMG_INDEX == $((IMG_CNT-1)) ]]; then
   cat img.html >> ${confs[HTML_FILENAME]};
   cat /usr/local/bin/news.footer.tpl.html >> ${confs[HTML_FILENAME]};
+  rm  img.html
   echo ${confs[HTML_FILENAME]};
 
   cat img.xml >> ${confs[XML_FILENAME]};
   cat /usr/local/bin/news.footer.tpl.xml >> ${confs[XML_FILENAME]};
+  rm  img.xml
   echo ${confs[XML_FILENAME]};
 fi
