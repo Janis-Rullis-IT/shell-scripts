@@ -20,6 +20,14 @@ if [[ ! -n $3 ]]; then
         echo "Date?";
         exit;
 fi
+if [[ ! -n $4 ]]; then
+        echo "Image count?";
+        exit;
+fi
+if [[ ! -n $5 ]]; then
+        echo "Image INDEX?";
+        exit;
+fi
 
 # #2 https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/#Replace_an_array_of_values
 # Associative array where key represents a search string,
@@ -28,6 +36,8 @@ declare -A confs
 DATE=$3;
 DATE_SHORT=${DATE//:/};
 DESCRIPTION=$2
+IMG_CNT=$4;
+IMG_INDEX=$5;
 DATE_W_DOTS=`tr ':' '.' <<< ${DATE}`.;
 
 confs=(
@@ -63,9 +73,15 @@ setVariables(){
 cat /usr/local/bin/img.tpl.html >> img.html
 setVariables img.html
 
-# #2 Create the HTML page only once (for the first image).
-if [[ ! -r ${confs[HTML_FILENAME]} ]]; then
-  cat /usr/local/bin/news.tpl.html > ${confs[HTML_FILENAME]};
+# #3 Create a fresh HTML if this is the first image.
+if [[ $IMG_INDEX == 0 ]]; then
+  cat /usr/local/bin/news.header.tpl.html > ${confs[HTML_FILENAME]};
   setVariables ${confs[HTML_FILENAME]};
+fi
+
+# #3 Merge HTML parts if this is the last image.
+if [[ $IMG_INDEX == $((IMG_CNT-1)) ]]; then
+  cat img.html >> ${confs[HTML_FILENAME]};
+  cat /usr/local/bin/news.footer.tpl.html >> ${confs[HTML_FILENAME]};
   echo ${confs[HTML_FILENAME]};
 fi

@@ -4,6 +4,15 @@
 # sudo cp rig.sh /usr/local/bin/rig
 # sudo chmod a+x /usr/local/bin/rig
 
+# Define error reporting level, file seperator, and init direcotry.
+function init(){
+    set -Eeuo pipefail; # set -o xtrace;
+    IFS=$'\n\t'
+    DIR=$PWD;
+    ROOT_DIR="$(dirname "${DIR}")";
+}
+init
+
 echo "== Resize an image into defined sizes for a responsive page ==
 Example
 1) rig - generates a list of sizes.
@@ -32,8 +41,15 @@ if [[ ! -d $target_dir ]]; then
         echo "Created $target_dir"
 fi
 
-for f in `find ./  -maxdepth 1 -type f \( -iname \*.jpg -o -iname \*.png -o -iname \*.tif \)`
+# #3 Get the total image count and pass it to the HTML generator.
+FOUND_IMAGES=`find ./  -maxdepth 1 -type f \( -iname \*.jpg -o -iname \*.png -o -iname \*.tif \)`
+FOUND_IMAGES_ARR=($FOUND_IMAGES)
+FOUND_IMAGE_CNT=${#FOUND_IMAGES_ARR[@]} 
+
+for i in "${!FOUND_IMAGES_ARR[@]}"
 do
+        f=${FOUND_IMAGES_ARR[$i]};
+
         # Trim the ./ part .
         f=${f:2};
         filename=$(basename $f);
@@ -51,7 +67,8 @@ do
             cwebp -q 40 "${target_prefix}-700x-gray-placeholder.jpg" -noalpha -mt -o "${target_prefix}-700x-gray-placeholder.webp";
 
             # #3 Generate img.html and json.html.
-            htm ${filename%.*} "${HTML_IMG_DESCRIPTION}" "${HTML_IMG_DATE}";
+            # #3 Pass the image count to the HTML generator.
+            htm ${filename%.*} "${HTML_IMG_DESCRIPTION}" "${HTML_IMG_DATE}" $FOUND_IMAGE_CNT $i;
         fi
 
         # Loop through sizes.
