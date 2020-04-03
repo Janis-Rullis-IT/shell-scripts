@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# #3 See in https://github.com/Janis-Rullis-IT/shell-scripts/blob/cc5428f13dfb18fa23dae18213eeb6314cd14379/rig.sh#L45
+
 set -Eeuo pipefail; # set -o xtrace;
     IFS=$'\n\t'
     DIR=$PWD;
