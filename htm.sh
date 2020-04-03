@@ -60,12 +60,12 @@ setVariables(){
 # #2 tpl.html can be found in https://github.com/ruu-lv/content_gen
 
 # #2 Append the image template block to the target HTML.
-cat img.tpl.html >> img.html
+cat /usr/local/bin/img.tpl.html >> img.html
 setVariables img.html
 
 # #2 Create the HTML page only once (for the first image).
 if [[ ! -r ${confs[HTML_FILENAME]} ]]; then
-  cat news.tpl.html > ${confs[HTML_FILENAME]};
+  cat /usr/local/bin/news.tpl.html > ${confs[HTML_FILENAME]};
   setVariables ${confs[HTML_FILENAME]};
   echo ${confs[HTML_FILENAME]};
 fi

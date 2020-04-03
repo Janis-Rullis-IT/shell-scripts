@@ -46,6 +46,6 @@ cd renamed
 exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 
 # #2 Genereate various size images and prepare HTML.
-rig $SIZES "${DESCRIPTION}" "${DATE}";
+rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
 echo "Final result is in \"${PWD}"

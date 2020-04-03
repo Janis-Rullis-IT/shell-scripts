@@ -17,8 +17,8 @@ target_dir="responsive";
 sizes=(3840 3200 2732 2048 1920 1600 1536 1366 1024 900 768 450);
 
 if [[ -n $1 ]]; then
-        readonly target_dir="$1x";
-        readonly sizes=($1);
+        target_dir="$1x";
+        sizes=($1);
 fi
 if [[ -n $2 ]]; then
         HTML_IMG_DESCRIPTION=$2;
@@ -26,9 +26,6 @@ fi
 if [[ -n $3 ]]; then
         HTML_IMG_DATE=$3;
 fi
-
-# #2 Genereate various size images and prepare HTML.
-rig $SIZES $WITH_PLACEHOLDER DESCRIPTION;
 
 if [[ ! -d $target_dir ]]; then
         mkdir $target_dir;
@@ -42,18 +39,18 @@ do
         filename=$(basename $f);
         target_prefix=${target_dir}/${filename%.*};
 
-        # #2 Generate a placeholder image and HTML.
+        # #3 Generate a placeholder image and HTML.
         if [[ $HTML_IMG_DESCRIPTION != "" ]]; then
 
-            # #2 Generate a JPG placeholder.
+            # #3 Generate a JPG placeholder.
             convert "$f" -resize 700x -strip -blur 0x8 -quality 20 "${target_prefix}-700x-placeholder.jpg";
             convert "${target_prefix}-700x-placeholder.jpg" -grayscale Rec709Luminance "${target_prefix}-700x-gray-placeholder.jpg";
             
-            # #2 Generate a WEMP placeholder.
+            # #3 Generate a WEMP placeholder.
             cwebp -q 40 "${target_prefix}-700x-placeholder.jpg" -noalpha -mt -o "${target_prefix}-700x-placeholder.webp";
             cwebp -q 40 "${target_prefix}-700x-gray-placeholder.jpg" -noalpha -mt -o "${target_prefix}-700x-gray-placeholder.webp";
 
-            # #2 Generate img.html and json.html.
+            # #3 Generate img.html and json.html.
             htm ${filename%.*} "${HTML_IMG_DESCRIPTION}" "${HTML_IMG_DATE}";
         fi
 
