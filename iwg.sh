@@ -28,13 +28,14 @@ TIME=$4
 SIZES=1920
 # Remove ':' from the date.
 DATE_FILENAME=${DATE//:/}
+DATE_DESCRIPTION=${DATE_FILENAME}-${DESCRIPTION};
 
 if [[  $5 ]]; then
         SIZES=""
 fi
 
 
-ren "${DATE_FILENAME}-${DESCRIPTION}" "${END}"
+ren "${DATE_DESCRIPTION}" "${END}"
 cd renamed
 
 # Add converted sRPG JPGs.
@@ -44,6 +45,7 @@ cd renamed
 # Set EXIF for originals.
 exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 
-rig $SIZES
+# #2 Genereate various size images and prepare HTML.
+rig $SIZES "${DESCRIPTION}" "${DATE}";
 
 echo "Final result is in \"${PWD}"
