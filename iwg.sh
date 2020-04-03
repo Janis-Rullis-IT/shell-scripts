@@ -1,8 +1,7 @@
-
 #!/bin/bash
 
 ## Make globally available with:
-# sudo cp iwg.sh /usr/local/bin/iwg
+# sudo ln -s ~/Desktop/www/shell-scripts/iwg.sh /usr/local/bin/iwg
 # sudo chmod a+x /usr/local/bin/iwg
 
 echo "== Prepare images for WEB - rename, add EXIF, convert to sRGB JPG ==
@@ -18,7 +17,20 @@ iwg \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\"
 IFS=$'\n\t'
 
 if [[ ! -n $1 ]]; then
-                exit
+  echo 'Description?';
+  exit;
+fi
+if [[ ! -n $2 ]]; then
+  echo 'Sufix?';
+  exit;
+fi
+if [[ ! -n $3 ]]; then
+  echo 'Date?';
+  exit;
+fi
+if [[ ! -n $4 ]]; then
+  echo 'Time?';
+  exit;
 fi
 
 DESCRIPTION=$1
@@ -33,7 +45,6 @@ DATE_DESCRIPTION=${DATE_FILENAME}-${DESCRIPTION};
 if [[  $5 ]]; then
         SIZES=""
 fi
-
 
 ren "${DATE_DESCRIPTION}" "${END}"
 cd renamed
@@ -50,6 +61,6 @@ rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
 # #3 Generate a video.
 cd responsive
-vids
+vids "${DATE_DESCRIPTION}";
 
 cd $PWD;

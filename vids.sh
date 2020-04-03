@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo cp vids.sh /usr/local/bin/vids
+# sudo ln -s ~/Desktop/www/shell-scripts/vids.sh /usr/local/bin/vids
 # sudo chmod a+x /usr/local/bin/vids
 
 IFS=$'\n\t'
@@ -9,16 +9,21 @@ DIR=$PWD;
 ROOT_DIR="$(dirname "${DIR}")";
 
 echo "== Collect a specific width JPG and generate a video ==";
-echo "vid or vid 640";
+echo "vid Birds or vid Birds 640";
+
+if [[ ! -n $1 ]]; then
+  echo 'Description?';
+  exit;
+fi
+DESCRIPTION=$1;
 
 # https://github.com/Janis-Rullis-IT/shell-scripts/blob/master/ren.sh
-# Trim first digit and get 001 -  https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
+# Trim first digit and get 001 - https://www.linuxquestions.org/questions/programming-9/incrementing-001-value-in-shell-script-578420/
 file_number=1001
-width=1920;
 
-# https://github.com/Janis-Rullis-IT/shell-scripts/blob/master/iwg.sh
-if [[ -n $1 ]]; then
-        width=$1;
+width=1920;
+if [[ -n $2 ]]; then
+        width=$2;
 fi
 
 # #1 Copy searched files to a directory. Ex., 1920x.
@@ -35,7 +40,7 @@ ren 'img' '-s';
 
 # #1 Create a video.
 cd renamed;
-vid $width:$height;
+vid "${DESCRIPTION}" $width:$height;
 
 echo "Video created."
 cd $DIR;
