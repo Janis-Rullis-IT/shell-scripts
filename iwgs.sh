@@ -2,7 +2,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo cp iwgs.sh /usr/local/bin/iwgs
+# sudo ln -s ~/Desktop/www/shell-scripts/iwgs.sh /usr/local/bin/iwgs
 # sudo chmod a+x /usr/local/bin/iwgs
 # https://github.com/Janis-Rullis-IT/shell-scripts/issues/2#issuecomment-608466590
 
@@ -12,6 +12,7 @@ function init(){
     IFS=$'\n\t'
     DIR=$PWD;
     ROOT_DIR="$(dirname "${DIR}")";
+      echo "" > "${DIR}/iwgs.log";
 }
 init
 
@@ -21,9 +22,16 @@ iwgs
 ";
 
 # #3 Get the total image count and pass it to the HTML generator.
-FOUND_SCRIPTS=`find . -name 'gen.sh'`
+FOUND_SCRIPTS=`find . -maxdepth 1 -name 'gen.sh'`
 FOUND_SCRIPTS_ARR=($FOUND_SCRIPTS)
 FOUND_SCRIPT_CNT=${#FOUND_SCRIPTS_ARR[@]} 
+PROCESSED_DIR="${DIR}/Processed";
+
+# #4 Will store processed albums here.
+if [[ ! -d $PROCESSED_DIR ]]; then
+  mkdir $PROCESSED_DIR;
+  echo "Created $PROCESSED_DIR";
+fi
 
 for i in "${!FOUND_SCRIPTS_ARR[@]}"
 do
@@ -41,6 +49,9 @@ do
   fi
 
   cd ${DIR};
+
+  # #4 Move the album to Processed.
+  mv "${dir}" "${PROCESSED_DIR}";
 done
 
 echo "Done! See ${DIR}/iwgs.log";
