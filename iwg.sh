@@ -6,7 +6,7 @@
 
 echo "== Prepare images for WEB - rename, add EXIF, convert to sRGB JPG ==
 Example
-iwg \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\"
+iwg \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
 ";
 
 # Copy me, please!
@@ -46,6 +46,12 @@ if [[  $5 ]]; then
         SIZES=""
 fi
 
+# echo 'Upload to r9?';
+MUST_UPLOAD=false;
+if [[  $6 ]]; then  
+  MUST_UPLOAD=$6;
+fi
+
 ren "${DATE_DESCRIPTION}" "${END}"
 cd renamed
 
@@ -58,6 +64,11 @@ exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 
 # #2 Genereate various size images and prepare HTML.
 rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
+
+ # #4 Upload to r9;    
+  if [[ MUST_UPLOAD ]]; then
+    scp -r responsive/* root@pma.r9.lv:/root/i/
+  fi
 
 # #3 Generate a video.
 cd responsive
