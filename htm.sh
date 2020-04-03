@@ -5,7 +5,7 @@
 
 echo "== Generarte HTML blocks for ruu.lv  ==
 Example
-htm 20190820-Kurzeme-Klaipeda-0002-Pavilosta-by-Janis-Rullis Pavilosta 2019:08:20
+htm 20190820-Kurzeme-Klaipeda-0002-Pavilosta-by-Janis-Rullis Pavilosta 2019:08:20 1 0
 ";
 
 if [[ ! -n $1 ]]; then
@@ -44,11 +44,11 @@ confs=(
   [DATE_W_HYPENS]=`tr ':' '-' <<< ${DATE}`
   [DATE_W_DOTS]=$DATE_W_DOTS
   [DATE_SHORT]=$DATE_SHORT
-  [DATE]=$3
   [HTML_FILENAME]="${DATE_SHORT}-${DESCRIPTION}.html"
+  [XML_FILENAME]="${DATE_SHORT}-${DESCRIPTION}.xml"
   [HTML_SHORT_TITLE]="${DATE_W_DOTS} ${DESCRIPTION}"
   [HTML_TITLE]="Analog Photography | ${DATE_W_DOTS} ${DESCRIPTION} | ruu.lv"  
-  [FILENAME]=$1
+  [IMG_FILENAME]=$1
   [DESCRIPTION]=$DESCRIPTION 
 )
 
@@ -69,19 +69,33 @@ setVariables(){
 
 # #2 tpl.html can be found in https://github.com/ruu-lv/content_gen
 
+# #3 Create a fresh HTML, Sitemap XML if this is the first image.
+if [[ $IMG_INDEX == 0 ]]; then
+  cat /usr/local/bin/news.header.tpl.html > ${confs[HTML_FILENAME]};
+  setVariables ${confs[HTML_FILENAME]};
+
+  cat /usr/local/bin/news.header.tpl.xml > ${confs[XML_FILENAME]};
+  setVariables ${confs[XML_FILENAME]};
+
+  echo "" > img.html;
+  echo "" > img.xml;
+fi
+
 # #2 Append the image template block to the target HTML.
 cat /usr/local/bin/img.tpl.html >> img.html
 setVariables img.html
 
-# #3 Create a fresh HTML if this is the first image.
-if [[ $IMG_INDEX == 0 ]]; then
-  cat /usr/local/bin/news.header.tpl.html > ${confs[HTML_FILENAME]};
-  setVariables ${confs[HTML_FILENAME]};
-fi
+# #5 Append the image template block to the target Sitemap XML.
+cat /usr/local/bin/img.tpl.xml >> img.xml
+setVariables img.xml
 
-# #3 Merge HTML parts if this is the last image.
+# #3 Merge HTML and Sitemap XML parts if this is the last image.
 if [[ $IMG_INDEX == $((IMG_CNT-1)) ]]; then
   cat img.html >> ${confs[HTML_FILENAME]};
   cat /usr/local/bin/news.footer.tpl.html >> ${confs[HTML_FILENAME]};
   echo ${confs[HTML_FILENAME]};
+
+  cat img.xml >> ${confs[XML_FILENAME]};
+  cat /usr/local/bin/news.footer.tpl.xml >> ${confs[XML_FILENAME]};
+  echo ${confs[XML_FILENAME]};
 fi
