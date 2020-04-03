@@ -4,6 +4,7 @@
 ## Make globally available with:
 # sudo cp iwgs.sh /usr/local/bin/iwgs
 # sudo chmod a+x /usr/local/bin/iwgs
+# https://github.com/Janis-Rullis-IT/shell-scripts/issues/2#issuecomment-608466590
 
 # Define error reporting level, file seperator, and init direcotry.
 function init(){
