@@ -48,4 +48,8 @@ exi "${DESCRIPTION}" "${DATE}" "${TIME}"
 # #2 Genereate various size images and prepare HTML.
 rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
-echo "Final result is in \"${PWD}"
+# #3 Generate a video.
+cd responsive
+vids
+
+cd $PWD;
