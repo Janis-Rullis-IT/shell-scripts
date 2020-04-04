@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 ## Make globally available with:
