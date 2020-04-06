@@ -68,6 +68,7 @@ setVariables(){
 }
 
 # #2 tpl.html can be found in https://github.com/ruu-lv/content_gen
+# #7 TODO: Replace tpl vars and actions with an array and a for-loop.
 
 # #3 Create a fresh HTML, Sitemap XML if this is the first image.
 if [[ $IMG_INDEX == 0 ]]; then
@@ -76,6 +77,16 @@ if [[ $IMG_INDEX == 0 ]]; then
 
   cat /usr/local/bin/news.header.tpl.xml > ${confs[XML_FILENAME]};
   setVariables ${confs[XML_FILENAME]};
+
+  # #7 Vidoe pages.  
+  cat /usr/local/bin/video.tpl.html > video-${confs[HTML_FILENAME]};
+  setVariables video-${confs[HTML_FILENAME]};
+
+  cat /usr/local/bin/video.tpl.xml > video-${confs[XML_FILENAME]};
+  setVariables video-${confs[XML_FILENAME]};
+
+  cat /usr/local/bin/video.amp.tpl.html > video-amp-${confs[HTML_FILENAME]};
+  setVariables video-amp-${confs[HTML_FILENAME]};  
 
   echo "" > img.html;
   echo "" > img.xml;
