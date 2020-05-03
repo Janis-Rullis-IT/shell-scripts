@@ -3,12 +3,14 @@
 
 echo "== Collect files with matching filenames and any extension. ==";
 
-if [[ ! -n $1 ]]; then
-        echo "From which directory should collect files?";
-        exit;
+DIR=$PWD;
+ROOT_DIR="$(dirname "${DIR}")";
+DIR_FROM=$ROOT_DIR;
+
+if [[ -n $1 ]]; then
+        DIR_FROM=$1;
 fi
 
-DIR_FROM=$1;
 DIR_TO=$(basename -- "$DIR_FROM")
 
 if [[ ! -d ${DIR_TO} ]]; then
