@@ -5,8 +5,7 @@
 # PhotoShop's 'RAW Data' tab (last) in the File info dialog.
 
 ## Make globally available with:
-# sudo cp exif-set.sh /usr/local/bin/exif-set
-# sudo chmod a+x /usr/local/bin/exif-set
+# sudo ln -s ~/Desktop/www/shell-scripts/exif-set.sh /usr/local/bin/exif-set && sudo chmod a+x /usr/local/bin/exif-set
 set -Eeuo pipefail; # set -o xtrace;
 echo "== Set EXIF for all files ==";
 echo "Example
@@ -21,6 +20,10 @@ DATE=$2
 TIME=$3
 DATETIME="${DATE} ${TIME}"
 
+# #10 Remove all metadata.
+exiftool -overwrite_original -all= .
+
+# #10 Set only the reqquired metadata.
 exiftool \
 -overwrite_original \
 \
