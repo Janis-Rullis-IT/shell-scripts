@@ -15,9 +15,9 @@ function init(){
 }
 init
 
-echo "== Prepare albums for WEB - rename, add EXIF, convert to sRGB JPG ==
+echo "== Prepare multiple image albums for publishing in the web - make responsive, generate videos, HTML, XML, JSON ==
 Example
-albums-for-web
+album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
 ";
 
 # #3 Get the total image count and pass it to the HTML generator.

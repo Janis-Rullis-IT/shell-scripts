@@ -4,7 +4,7 @@
 # sudo ln -s ~/Desktop/www/shell-scripts/album-for-web.sh /usr/local/bin/album-for-web
 # sudo chmod a+x /usr/local/bin/album-for-web
 
-echo "== Prepare images for WEB - rename, add EXIF, convert to sRGB JPG ==
+echo "== Prepare this image album for publishing in the web - make responsive, generate videos, HTML, XML, JSON ==
 Example
 album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
 ";
@@ -60,7 +60,7 @@ cd renamed
 #cd srgb
 
 # Set EXIF for originals.
-exi "${DESCRIPTION}" "${DATE}" "${TIME}"
+exif-set "${DESCRIPTION}" "${DATE}" "${TIME}"
 
 # #2 Genereate various size images and prepare HTML.
 rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
