@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo ln -s ~/Desktop/www/shell-scripts/album-for-web.sh /usr/local/bin/album-for-web
-# sudo chmod a+x /usr/local/bin/album-for-web
+# sudo ln -s ~/Desktop/www/shell-scripts/album-for-web.sh /usr/local/bin/album-for-web && sudo chmod a+x /usr/local/bin/album-for-web
 
 echo "== Prepare this image album for publishing in the web - make responsive images, generate videos, HTML, XML, JSON ==
 Example

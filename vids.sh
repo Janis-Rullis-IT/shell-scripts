@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo ln -s ~/Desktop/www/shell-scripts/vids.sh /usr/local/bin/vids
-# sudo chmod a+x /usr/local/bin/vids
+# sudo ln -s ~/Desktop/www/shell-scripts/vids.sh /usr/local/bin/vids && sudo chmod a+x /usr/local/bin/vids
 
 IFS=$'\n\t'
 DIR=$PWD;
@@ -28,15 +27,15 @@ fi
 
 # #1 Copy searched files to a directory. Ex., 1920x.
 dir_width="${width}x.jpg";
-extr ${dir_width};
+collect-searched ${dir_width};
 
 cd $dir_width;
 
 # #1 Convert images to 16:9 ratio based on the passed width. Ex., 1920x/1080/.
-c16-9 $width;
+img-to-16-9 $width;
 
 # #1 Convert to indexed format.
-ren 'img' '-s';
+rename-files-cp 'img' '-s';
 
 # #1 Create a video.
 cd renamed;

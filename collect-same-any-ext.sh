@@ -1,5 +1,5 @@
 #!/bin/bash
-# sudo ln -s ~/Desktop/www/shell-scripts/mag.sh /usr/local/bin/mag && sudo chmod a+x /usr/local/bin/mag
+# sudo ln -s ~/Desktop/www/shell-scripts/collect-same-any-ext.sh /usr/local/bin/collect-same-any-ext && sudo chmod a+x /usr/local/bin/collect-same-any-ext
 
 echo "== Collect files with matching filenames and any extension. ==";
 

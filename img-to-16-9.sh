@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo cp c16-9.sh /usr/local/bin/c16-9
-# sudo chmod a+x /usr/local/bin/c16-9
+# sudo ln -s ~/Desktop/www/shell-scripts/img-to-16-9.sh /usr/local/bin/img-to-16-9 && sudo chmod a+x /usr/local/bin/img-to-16-9
 
 IFS=$'\n\t'
 DIR=$PWD;

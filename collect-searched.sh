@@ -1,14 +1,13 @@
 
 #!/bin/bash
-# sudo cp extr.sh /usr/local/bin/extr
-# sudo chmod a+x /usr/local/bin/extr
+# sudo ln -s ~/Desktop/www/shell-scripts/collect-searched.sh /usr/local/bin/collect-searched && sudo chmod a+x /usr/local/bin/collect-searched
 
 echo "== Copy searched files to a directory ==";
 
 # #1 https://github.com/Janis-Rullis-IT/shell-scripts/blob/master/iwg.sh
 if [[ ! -n $1 ]]; then
         echo "What are You searching?";
-        exit;
+          exit;
 fi
 
 search=$1;
