@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sudo apt install cwebp
+# sudo apt install webp
 # sudo  ln -s ~/Desktop/www/shell-scripts/img-and-code-for-web.sh /usr/local/bin/img-and-code-for-web
 # sudo chmod a+x /usr/local/bin/img-and-code-for-web
 
@@ -15,9 +15,8 @@ init
 
 echo "== Generarte responsive images and put them inside HTML, XML, JSON ==
 Example
-1) img-and-code-for-web - generates a list of sizes.
-2) img-and-code-for-web 1920 - only 1 size.
-4) img-and-code-for-web '' 'Birds' '2020-03-03' - also generate HTML and placeholders.
+* img-and-code-for-web '' 'Birds' '2020-03-03' - generates a list of sizes.
+* img-and-code-for-web 2048 'Birds' '2020-03-03' - generate only the specified size.
 ";
 
 HTML_IMG_DESCRIPTION="";
