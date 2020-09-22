@@ -1,11 +1,11 @@
 #!/bin/bash
 ## Make globally available with:
-# sudo cp ren.sh /usr/local/bin/ren
-# sudo chmod a+x /usr/local/bin/ren
+# sudo ln -s ~/Desktop/www/shell-scripts/rename-files-cp.sh /usr/local/bin/rename-files-cp
+# sudo chmod a+x /usr/local/bin/rename-files-cp
 
 echo "== Safely rename all files in subdirectories. Store in 'renamed' directory. ==
 Example
-ren \"Flowers\" \"2019\"";
+rename-files-cp \"Flowers\" \"2019\"";
 
 #set -Eeuo pipefail; # set -o xtrace # Define how to handle newlines in the `find` results.
 IFS=$'\n\t'

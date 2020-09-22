@@ -1,16 +1,16 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo ln -s ~/Desktop/www/shell-scripts/iwg.sh /usr/local/bin/iwg
-# sudo chmod a+x /usr/local/bin/iwg
+# sudo ln -s ~/Desktop/www/shell-scripts/album-for-web.sh /usr/local/bin/album-for-web
+# sudo chmod a+x /usr/local/bin/album-for-web
 
 echo "== Prepare images for WEB - rename, add EXIF, convert to sRGB JPG ==
 Example
-iwg \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
+album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
 ";
 
 # Copy me, please!
-# iwg "Flowers" "-by-Janis-Rullis" "2019:09:30" "21:00:00"
+# album-for-web "Flowers" "-by-Janis-Rullis" "2019:09:30" "21:00:00"
 
 #set -Eeuo pipefail; # set -o xtrace;
 # Define how to handle newlines in the `find` results.
@@ -52,7 +52,7 @@ if [[  $6 ]]; then
   MUST_UPLOAD=$6;
 fi
 
-ren "${DATE_DESCRIPTION}" "${END}"
+rename-files-cp "${DATE_DESCRIPTION}" "${END}"
 cd renamed
 
 # Add converted sRPG JPGs.

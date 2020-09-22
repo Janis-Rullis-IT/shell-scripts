@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo ln -s ~/Desktop/www/shell-scripts/iwgs.sh /usr/local/bin/iwgs
-# sudo chmod a+x /usr/local/bin/iwgs
+# sudo ln -s ~/Desktop/www/shell-scripts/albums-for-web.sh /usr/local/bin/albums-for-web
+# sudo chmod a+x /usr/local/bin/albums-for-web
 # https://github.com/Janis-Rullis-IT/shell-scripts/issues/2#issuecomment-608466590
 
 # Define error reporting level, file seperator, and init direcotry.
@@ -11,13 +11,13 @@ function init(){
     IFS=$'\n\t'
     DIR=$PWD;
     ROOT_DIR="$(dirname "${DIR}")";
-      echo "" > "${DIR}/iwgs.log";
+      echo "" > "${DIR}/albums-for-web.log";
 }
 init
 
 echo "== Prepare albums for WEB - rename, add EXIF, convert to sRGB JPG ==
 Example
-iwgs
+albums-for-web
 ";
 
 # #3 Get the total image count and pass it to the HTML generator.
@@ -39,15 +39,15 @@ for i in "${!FOUND_SCRIPTS_ARR[@]}"
 do
   f=${FOUND_SCRIPTS_ARR[$i]};
   dir=$(dirname $f);
-  echo $dir >> "${DIR}/iwgs.log";
+  echo $dir >> "${DIR}/albums-for-web.log";
 
   cd "${dir}";
 
   if [[ -r 'renamed' ]]; then
-    echo "Skipping because there's already a generated content." >> "${DIR}/iwgs.log";
+    echo "Skipping because there's already a generated content." >> "${DIR}/albums-for-web.log";
   else
     ./gen.sh
-    echo "Completed." >> "${DIR}/iwgs.log";
+    echo "Completed." >> "${DIR}/albums-for-web.log";
   fi
 
   cd ${DIR};
@@ -74,4 +74,4 @@ for GROUP_FORMAT in ${GROUP_FORMATS[@]}; do
   done
 done
 
-echo "Done! See ${DIR}/iwgs.log";
+echo "Done! See ${DIR}/albums-for-web.log";
