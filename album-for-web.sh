@@ -4,7 +4,7 @@
 # sudo ln -s ~/Desktop/www/shell-scripts/album-for-web.sh /usr/local/bin/album-for-web
 # sudo chmod a+x /usr/local/bin/album-for-web
 
-echo "== Prepare this image album for publishing in the web - make responsive, generate videos, HTML, XML, JSON ==
+echo "== Prepare this image album for publishing in the web - make responsive images, generate videos, HTML, XML, JSON ==
 Example
 album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
 ";
@@ -63,7 +63,7 @@ cd renamed
 exif-set "${DESCRIPTION}" "${DATE}" "${TIME}"
 
 # #2 Genereate various size images and prepare HTML.
-rig "${SIZES}" "${DESCRIPTION}" "${DATE}";
+img-and-code-for-web "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
  # #4 Upload to r9;    
   if [[ MUST_UPLOAD ]]; then

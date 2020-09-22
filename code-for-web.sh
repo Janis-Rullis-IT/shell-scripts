@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# sudo ln -s ~/Desktop/www/shell-scripts/htm.sh /usr/local/bin/htm
-# sudo chmod a+x /usr/local/bin/htm
+# sudo ln -s ~/Desktop/www/shell-scripts/code-for-web.sh /usr/local/bin/code-for-web
+# sudo chmod a+x /usr/local/bin/code-for-web
 
-echo "== Generarte HTML blocks for ruu.lv  ==
+echo "== Generarte HTML, XML, JSON for static pages ==
 Example
-htm 20190820-Kurzeme-Klaipeda-0002-Pavilosta-by-Janis-Rullis Pavilosta 2019:08:20 1 0
+code-for-web 20190820-Kurzeme-Klaipeda-0002-Pavilosta-by-Janis-Rullis Pavilosta 2019:08:20 1 0
 ";
 
 if [[ ! -n $1 ]]; then

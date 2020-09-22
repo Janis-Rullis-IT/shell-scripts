@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # sudo apt install cwebp
-# sudo cp rig.sh /usr/local/bin/rig
-# sudo chmod a+x /usr/local/bin/rig
+# sudo  ln -s ~/Desktop/www/shell-scripts/img-and-code-for-web.sh /usr/local/bin/img-and-code-for-web
+# sudo chmod a+x /usr/local/bin/img-and-code-for-web
 
 # Define error reporting level, file seperator, and init direcotry.
 function init(){
@@ -13,11 +13,11 @@ function init(){
 }
 init
 
-echo "== Resize an image into defined sizes for a responsive page ==
+echo "== Generarte responsive images and put them inside HTML, XML, JSON ==
 Example
-1) rig - generates a list of sizes.
-2) rig 1920 - only 1 size.
-4) rig '' 'Birds' '2020-03-03' - also generate HTML and placeholders.
+1) img-and-code-for-web - generates a list of sizes.
+2) img-and-code-for-web 1920 - only 1 size.
+4) img-and-code-for-web '' 'Birds' '2020-03-03' - also generate HTML and placeholders.
 ";
 
 HTML_IMG_DESCRIPTION="";
@@ -68,7 +68,7 @@ do
 
             # #3 Generate img.html and json.html.
             # #3 Pass the image count to the HTML generator.
-            htm ${filename%.*} "${HTML_IMG_DESCRIPTION}" "${HTML_IMG_DATE}" $FOUND_IMAGE_CNT $i;
+            code-for-web ${filename%.*} "${HTML_IMG_DESCRIPTION}" "${HTML_IMG_DATE}" $FOUND_IMAGE_CNT $i;
         fi
 
         # Loop through sizes.
