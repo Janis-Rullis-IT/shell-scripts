@@ -2,6 +2,7 @@
 
 # https://linuxconfig.org/ubuntu-20-04-ffmpeg-installation
 # sudo ln -s ~/Desktop/www/shell-scripts/video-from-jpg.sh /usr/local/bin/video-from-jpg && sudo chmod a+x /usr/local/bin/video-from-jpg
+# sudo ln -s /home/j/Desktop/www/content_gen/audio.mp3 /usr/local/bin/audio.mp3
 
 echo "== Create a video from images with a music ==";
 size=1920:1080;

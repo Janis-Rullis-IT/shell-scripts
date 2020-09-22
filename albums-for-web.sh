@@ -17,7 +17,7 @@ init
 
 echo "== Prepare multiple image albums for publishing in the web - make responsive images, generate videos, HTML, XML, JSON ==
 Example
-album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
+albums-for-web
 ";
 
 # #3 Get the total image count and pass it to the HTML generator.
