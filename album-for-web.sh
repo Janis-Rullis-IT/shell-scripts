@@ -71,6 +71,6 @@ img-and-code-for-web "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
 # #3 Generate a video.
 cd responsive
-vids "${DATE_DESCRIPTION}";
+videos-from-jpg "${DATE_DESCRIPTION}";
 
 cd $PWD;

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Make globally available with:
-# sudo ln -s ~/Desktop/www/shell-scripts/vids.sh /usr/local/bin/vids && sudo chmod a+x /usr/local/bin/vids
+# sudo ln -s ~/Desktop/www/shell-scripts/videos-from-jpg.sh /usr/local/bin/videos-from-jpg && sudo chmod a+x /usr/local/bin/videos-from-jpg
 
 IFS=$'\n\t'
 DIR=$PWD;
@@ -39,7 +39,7 @@ rename-files-cp 'img' '-s';
 
 # #1 Create a video.
 cd renamed;
-vid "${DESCRIPTION}" $width:$height;
+video-from-jpg "${DESCRIPTION}" $width:$height;
 
 echo "Video created."
 cd $DIR;

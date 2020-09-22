@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# https://linux4one.com/how-to-install-ffmpeg-on-ubuntu-18-04/
-# sudo ln -s ~/Desktop/www/shell-scripts/vid.sh /usr/local/bin/vid
-# sudo chmod a+x /usr/local/bin/vid
+# https://linuxconfig.org/ubuntu-20-04-ffmpeg-installation
+# sudo ln -s ~/Desktop/www/shell-scripts/video-from-jpg.sh /usr/local/bin/video-from-jpg && sudo chmod a+x /usr/local/bin/video-from-jpg
 
 echo "== Create a video from images with a music ==";
 size=1920:1080;
