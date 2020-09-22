@@ -5,7 +5,9 @@
 
 echo "== Prepare this image album for publishing in the web - make responsive images, generate videos, HTML, XML, JSON ==
 Example
-album-for-web \"Flowers\" \"-by-Janis-Rullis\" \"2019:09:30\" \"21:00:00\" 1
+* album-for-web 'Red-bag' '-by-Janis-Rullis' '2020:03:10' '21:00:00'
+* album-for-web 'Red-bag' '-by-Janis-Rullis' '2020:03:10' '21:00:00' all-sizes
+* album-for-web 'Red-bag' '-by-Janis-Rullis' '2020:03:10' '21:00:00' all-sizes must-upload
 ";
 
 # Copy me, please!
@@ -36,7 +38,7 @@ DESCRIPTION=$1
 END=$2
 DATE=$3
 TIME=$4
-SIZES=1920
+SIZES=2048
 # Remove ':' from the date.
 DATE_FILENAME=${DATE//:/}
 DATE_DESCRIPTION=${DATE_FILENAME}-${DESCRIPTION};
@@ -48,7 +50,7 @@ fi
 # echo 'Upload to r9?';
 MUST_UPLOAD=false;
 if [[  $6 ]]; then  
-  MUST_UPLOAD=$6;
+  MUST_UPLOAD=true;
 fi
 
 rename-files-cp "${DATE_DESCRIPTION}" "${END}"
@@ -65,9 +67,9 @@ exif-set "${DESCRIPTION}" "${DATE}" "${TIME}"
 img-and-code-for-web "${SIZES}" "${DESCRIPTION}" "${DATE}";
 
  # #4 Upload to r9;    
-  if [[ MUST_UPLOAD ]]; then
-    scp -r responsive/* root@pma.r9.lv:/root/i/
-  fi
+ if [[ $MUST_UPLOAD = true ]]; then
+   scp -r responsive/* root@pma.r9.lv:/root/i/
+ fi
 
 # #3 Generate a video.
 cd responsive
