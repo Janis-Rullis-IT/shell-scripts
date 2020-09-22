@@ -75,4 +75,8 @@ img-and-code-for-web "${SIZES}" "${DESCRIPTION}" "${DATE}";
 cd responsive
 videos-from-jpg "${DATE_DESCRIPTION}";
 
+# #13 Collect 2048x.jpg into a separate dir.
+cd 2048x
+collect-searched "2048x.jpg"
+
 cd $PWD;
