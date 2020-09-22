@@ -5,17 +5,17 @@
 # PhotoShop's 'RAW Data' tab (last) in the File info dialog.
 
 ## Make globally available with:
-# sudo cp exi.sh /usr/local/bin/exi
-# sudo chmod a+x /usr/local/bin/exi
+# sudo cp exif-set.sh /usr/local/bin/exif-set
+# sudo chmod a+x /usr/local/bin/exif-set
 set -Eeuo pipefail; # set -o xtrace;
 echo "== Set EXIF for all files ==";
 echo "Example
-./exi.sh \"Flowers\" \"2019:09:30\" \"21:00:00\"
+./exif-set.sh \"Flowers\" \"2019:09:30\" \"21:00:00\"
 "
 
 AUTHOR="Janis Rullis"
 WEBSITE="ruu.lv"
-COPYRIGHT="© 2019 ${AUTHOR} | ${WEBSITE}"
+COPYRIGHT="© 2020 ${AUTHOR} | ${WEBSITE}"
 DESCRIPTION="${1} | ${COPYRIGHT}"
 DATE=$2
 TIME=$3
