@@ -26,7 +26,6 @@ function getLatestCommitHashFromRemote(){
 }
 
 function hasRemoteNewCommits(){
-  echo "Checking if REMOTE git repo has NEW COMMITS..." >&2;
   local LOCAL_HASH=$(getLatestCommitHashFromLocal);
   local REMOTE_HASH=$(getLatestCommitHashFromRemote);
 
