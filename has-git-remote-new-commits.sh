@@ -11,32 +11,38 @@ function initGlobals(){
     readonly ROOT_DIR="$(dirname "${DIR}")";
 }
 
-function getLatestCommitHashFromRemote(){
-  echo "Collecting the HASH from the latest REMOTE commit...";
-  readonly LAST_REMOTE_COMMIT_SHORT==`git ls-remote origin -h refs/heads/"${BRANCH_TO_CHECK}" | awk '{ print $1}'`;
-  echo $LAST_REMOTE_COMMIT_SHORT;
-}  
-
 function getLatestCommitHashFromLocal(){
-  echo "Collecting the HASH from the latest LOCAL commit...";
-  git rev-parse refs/heads/master
+  echo "Collecting the HASH from the latest LOCAL commit..." >&2;
+  local readonly LAST_LOCAL_COMMIT=`git rev-parse refs/heads/"${BRANCH_TO_CHECK}"`;
+  echo $LAST_LOCAL_COMMIT >&2;
+  echo $LAST_LOCAL_COMMIT;
+}
+
+function getLatestCommitHashFromRemote(){
+  echo "Collecting the HASH from the latest REMOTE commit..." >&2;
+  local readonly LAST_REMOTE_COMMIT=`git ls-remote origin -h refs/heads/"${BRANCH_TO_CHECK}" | awk '{ print $1}'`;
+  echo $LAST_REMOTE_COMMIT >&2;
+  echo $LAST_REMOTE_COMMIT;
 }
 
 function hasRemoteNewCommits(){
-  echo "Checking if REMOTE git repo has NEW COMMITS...";
-  LOCAL_HASH=getLatestCommitHashFromRemote;
-  REMOTE_HASH=getLatestCommitHashFromLocal;
+  echo "Checking if REMOTE git repo has NEW COMMITS..." >&2;
+  local LOCAL_HASH=$(getLatestCommitHashFromLocal);
+  local REMOTE_HASH=$(getLatestCommitHashFromRemote);
 
-  #ocal res=$(fun1)
-
-  if [[ $LOCAL_HASH == $REMOTE_HASH ]]; then
-    true;
+  if [[ $LOCAL_HASH != $REMOTE_HASH ]]; then
+    echo true;
   else
-    false
+    echo false;
   fi
 }
 
 initGlobals
-getLatestCommitHashFromRemote
-# getLatestCommitHashFromLocal
-# hasRemoteNewCommits
+
+readonly HAS_REMOTE_NEW_COMMITS=$(hasRemoteNewCommits);
+
+if [[ $HAS_REMOTE_NEW_COMMITS = true ]]; then
+  echo "REMOTE has new COMMITS!";
+else
+  echo "Nothing new."
+fi
