@@ -21,7 +21,7 @@ TIME=$3
 DATETIME="${DATE} ${TIME}"
 
 # #10 Remove all metadata.
-exiftool -overwrite_original -all= .
+exiftool -all= -tagsfromfile @ -Orientation .
 
 # #10 Set only the reqquired metadata.
 exiftool \
