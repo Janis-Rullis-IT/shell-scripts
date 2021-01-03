@@ -14,7 +14,7 @@ echo "Example
 
 AUTHOR="Janis Rullis"
 WEBSITE="ruu.lv"
-COPYRIGHT="© 2020 ${AUTHOR} | ${WEBSITE}"
+COPYRIGHT="© 2021 ${AUTHOR} | ${WEBSITE}"
 DESCRIPTION="${1} | ${COPYRIGHT}"
 DATE=$2
 TIME=$3
