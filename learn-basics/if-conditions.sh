@@ -67,6 +67,11 @@ if [[ -n $str_1 ]]; then
 	echo '[[ -n $str_1 ]];';
 fi
 
+echo "If first argument contains --user_id"
+if [[ "$1" != *"--user_id="* ]]; then
+  echo ${USER_ID_ERROR}
+  exit;
+fi
 
 echo "";
 echo "is true if $emptystring is an empty string or an uninitialized variable. ";
