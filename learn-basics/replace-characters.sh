@@ -15,3 +15,7 @@ echo "
 DATE_W_HYPENS=`tr ':' '-' <<< ${DATE}`;
 DATE_W_DOTS=`tr ':' '.' <<< ${DATE}`.;
 DATE_SHORT=${DATE//:/};
+
+# Remove user_id
+
+USER_ID_STR=${USER_ID_STR/'--user_id='/}
