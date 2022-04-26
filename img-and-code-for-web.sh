@@ -78,7 +78,8 @@ do
             dir=$(dirname $f);
 
             # Convert to *.jpg.
-            convert "$f" -resize ${size} -gaussian-blur 0.05 -quality 85%  "${target}.jpg";
+            # -gaussian-blur 0.05
+            convert "$f" -resize ${size} -quality 85%  "${target}.jpg";
 
             if [[ $HTML_IMG_DESCRIPTION != "" ]]; then
 
