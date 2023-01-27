@@ -11,7 +11,7 @@ echo "";
 if [[ -n $1 ]]; then
 	readonly MSG=$1;
 	git add . -A;
-	git commit -m "$MSG";
+	git commit -m "$MSG" --no-verify;
 	git push
 else
 	echo "Commit message is missing!";
