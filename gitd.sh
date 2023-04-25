@@ -5,4 +5,9 @@
 # sudo chmod a+x /usr/local/bin/gitd
 
 echo "git diff";
-git diff
+TARGET=$1
+if [[ ! -n $1 ]]; then
+	TARGET=staging
+fi
+COMMIT=`git merge-base $TARGET HEAD`
+git diff $COMMIT..HEAD
